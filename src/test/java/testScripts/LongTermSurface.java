@@ -28,15 +28,10 @@ public class LongTermSurface extends BaseClass {
 
 	@Test
 	public void TC01() {
-		/*
-		 * ParkingLot= new Select(dr.findElement(By.name("ParkingLot")));
-		 * dr.findElement(submitBtn).click(); WebElement error =
-		 * dr.findElement(By.xpath("//*[contains(text(),'ERROR')]"));
-		 * assertEquals("ERROR! ENTER A CORRECTLY FORMATTED DATE", error.getText());
-		 * System.out.println(ParkingLot.getFirstSelectedOption().getText());
-		 * assertEquals("Short-Term Parking",ParkingLot.getFirstSelectedOption().getText
-		 * ());
-		 */
+		drpDwn();
+		dr.findElement(submitBtn).click();
+		WebElement error = dr.findElement(By.xpath("//*[contains(text(),'ERROR')]"));
+		assertEquals("ERROR! ENTER A CORRECTLY FORMATTED DATE", error.getText());
 	}
 
 	@Test

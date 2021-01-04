@@ -4,21 +4,21 @@
 	<test name="ChromeTest">
 		<parameter name="Browser" value="Chrome"></parameter>
 		<classes>
-			<class name="testScripts.ValetParking" />
+			<!--  <class name="testScripts.ValetParking" />
 			<class name="testScripts.ShortTermHourly" />
 			<class name="testScripts.LongTermGarage" />
-			<class name="testScripts.LongTermSurface" />
+			<class name="testScripts.LongTermSurface" /> -->
 			<class name="testScripts.EconomyLot" />
 		</classes>
 	</test> <!-- Test -->
 	<test name="FirefoxTest">
 		<parameter name="Browser" value="Firefox"></parameter>
 		<classes>
-			<class name="testScripts.ValetParking" />
+			<!-- <class name="testScripts.ValetParking" />
 			<class name="testScripts.ShortTermHourly" />
 			<class name="testScripts.LongTermGarage" />
 			<class name="testScripts.LongTermSurface" />
-			<class name="testScripts.EconomyLot" />
+			<class name="testScripts.EconomyLot" /> -->
 		</classes>
 	</test> <!-- Test -->
 	<test name="InternetExplorerTest">
