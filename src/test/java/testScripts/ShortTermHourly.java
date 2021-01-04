@@ -20,30 +20,37 @@ import org.testng.annotations.Test;
 import configuration.BaseClass;
 import configuration.Configuration;
 
-public class ValetParking extends BaseClass {
+public class ShortTermHourly extends BaseClass {
 
 	By startingDate = By.id("StartingDate");
 	By leavingDate = By.id("LeavingDate");
 	By startingTime = By.id("StartingTime");
 	By leavingTime = By.id("LeavingTime");
 	By submitBtn = By.xpath("//*[@value='Calculate']");
-	
-	
-	@Test
-	public void TC00() {
-		Select ParkingLot = new Select(dr.findElement(By.name("ParkingLot")));
-		ParkingLot.selectByValue("Valet");
+
+	Select ParkingLot;
+
+	public void drpDwn() {
+		ParkingLot = new Select(dr.findElement(By.name("ParkingLot")));
+		ParkingLot.selectByValue("Short");
 	}
 
 	@Test
 	public void TC01() {
-		dr.findElement(submitBtn).click();
-		WebElement error = dr.findElement(By.xpath("//*[contains(text(),'ERROR')]"));
-		assertEquals("ERROR! ENTER A CORRECTLY FORMATTED DATE", error.getText());
+		/*
+		 * ParkingLot= new Select(dr.findElement(By.name("ParkingLot")));
+		 * dr.findElement(submitBtn).click(); WebElement error =
+		 * dr.findElement(By.xpath("//*[contains(text(),'ERROR')]"));
+		 * assertEquals("ERROR! ENTER A CORRECTLY FORMATTED DATE", error.getText());
+		 * System.out.println(ParkingLot.getFirstSelectedOption().getText());
+		 * assertEquals("Short-Term Parking",ParkingLot.getFirstSelectedOption().getText
+		 * ());
+		 */
 	}
 
 	@Test
 	public void TC02() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -59,7 +66,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 12.00", price.get(1).getText());
+		assertEquals("$ 2.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (0 Days, 1 Hours, 0 Minutes)", totalTime.get(7).getText());
@@ -67,6 +74,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC03() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -82,7 +90,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 12.00", price.get(1).getText());
+		assertEquals("$ 5.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (0 Days, 2 Hours, 30 Minutes)", totalTime.get(7).getText());
@@ -90,6 +98,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC04() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -105,7 +114,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 12.00", price.get(1).getText());
+		assertEquals("$ 10.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (0 Days, 5 Hours, 0 Minutes)", totalTime.get(7).getText());
@@ -113,6 +122,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC05() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -128,7 +138,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 18.00", price.get(1).getText());
+		assertEquals("$ 24.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (0 Days, 23 Hours, 59 Minutes)", totalTime.get(7).getText());
@@ -136,6 +146,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC06() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -151,7 +162,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 18.00", price.get(1).getText());
+		assertEquals("$ 24.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (1 Days, 0 Hours, 0 Minutes)", totalTime.get(7).getText());
@@ -159,6 +170,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC07() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -174,7 +186,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 36.00", price.get(1).getText());
+		assertEquals("$ 48.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (1 Days, 19 Hours, 45 Minutes)", totalTime.get(7).getText());
@@ -182,6 +194,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC08() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -197,7 +210,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 54.00", price.get(1).getText());
+		assertEquals("$ 72.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (2 Days, 19 Hours, 0 Minutes)", totalTime.get(7).getText());
@@ -205,6 +218,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC09() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -220,7 +234,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 576.00", price.get(1).getText());
+		assertEquals("$ 768.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (31 Days, 20 Hours, 0 Minutes)", totalTime.get(7).getText());
@@ -228,6 +242,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC10() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -243,7 +258,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 2,214.00", price.get(1).getText());
+		assertEquals("$ 2,943.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (122 Days, 7 Hours, 30 Minutes)", totalTime.get(7).getText());
@@ -251,6 +266,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC11() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -266,7 +282,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 6,570.00", price.get(1).getText());
+		assertEquals("$ 8,760.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (365 Days, 0 Hours, 0 Minutes)", totalTime.get(7).getText());
@@ -274,6 +290,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC12() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/01/2021");
 
@@ -289,7 +306,7 @@ public class ValetParking extends BaseClass {
 		dr.findElement(submitBtn).click();
 
 		List<WebElement> price = dr.findElements(By.className("SubHead"));
-		assertEquals("$ 6,582.00", price.get(1).getText());
+		assertEquals("$ 8,766.00", price.get(1).getText());
 
 		List<WebElement> totalTime = dr.findElements(By.className("BodyCopy"));
 		assertEquals("        (365 Days, 3 Hours, 0 Minutes)", totalTime.get(7).getText());
@@ -297,6 +314,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC13() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 
 		dr.findElement(leavingDate).clear();
@@ -312,6 +330,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC14() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/21/2021");
 
@@ -328,6 +347,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC15() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("01/21/2021");
 
@@ -343,6 +363,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC16() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(leavingDate).clear();
 
@@ -356,6 +377,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC17() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("sffhbyh");
 
@@ -375,6 +397,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC18() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("sffhbyh");
 
@@ -394,6 +417,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC19() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("@#$%");
 
@@ -413,6 +437,7 @@ public class ValetParking extends BaseClass {
 
 	@Test
 	public void TC20() {
+		drpDwn();
 		dr.findElement(startingDate).clear();
 		dr.findElement(startingDate).sendKeys("-134");
 
@@ -429,4 +454,5 @@ public class ValetParking extends BaseClass {
 		WebElement error = dr.findElement(By.xpath("//*[contains(text(),'ERROR')]"));
 		assertEquals("ERROR! ENTER A CORRECTLY FORMATTED DATE", error.getText());
 	}
+
 }

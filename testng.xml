@@ -4,7 +4,11 @@
   <test name="Test">
   <parameter name="Browser" value="Chrome"></parameter>
     <classes>
-      <class name="pageObjects.ParkingCost"/>
+      <class name="testScripts.ValetParking"/>
+      <class name="testScripts.ShortTermHourly"/>
+      <class name="testScripts.LongTermGarage"/>
+      <class name="testScripts.LongTermSurface"/>
+      <class name="testScripts.EconomyLot"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
