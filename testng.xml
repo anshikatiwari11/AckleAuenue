@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test name="Test">
-  <parameter name="Browser" value="Chrome"></parameter>
-    <classes>
-      <class name="testScripts.ValetParking"/>
-      <class name="testScripts.ShortTermHourly"/>
-      <class name="testScripts.LongTermGarage"/>
-      <class name="testScripts.LongTermSurface"/>
-      <class name="testScripts.EconomyLot"/>
-    </classes>
-  </test> <!-- Test -->
+	<test name="ChromeTest">
+		<parameter name="Browser" value="Chrome"></parameter>
+		<classes>
+			<class name="testScripts.ValetParking" />
+			<class name="testScripts.ShortTermHourly" />
+			<class name="testScripts.LongTermGarage" />
+			<class name="testScripts.LongTermSurface" />
+			<class name="testScripts.EconomyLot" />
+		</classes>
+	</test> <!-- Test -->
+	<test name="FirefoxTest">
+		<parameter name="Browser" value="Firefox"></parameter>
+		<classes>
+			<class name="testScripts.ValetParking" />
+			<class name="testScripts.ShortTermHourly" />
+			<class name="testScripts.LongTermGarage" />
+			<class name="testScripts.LongTermSurface" />
+			<class name="testScripts.EconomyLot" />
+		</classes>
+	</test> <!-- Test -->
+	<test name="InternetExplorerTest">
+		<parameter name="Browser" value="InternetExplorer"></parameter>
+		<classes>
+			<!-- <class name="testScripts.ValetParking" />
+			<class name="testScripts.ShortTermHourly" />
+			<class name="testScripts.LongTermGarage" />
+			<class name="testScripts.LongTermSurface" />
+			<class name="testScripts.EconomyLot" /> -->
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->
