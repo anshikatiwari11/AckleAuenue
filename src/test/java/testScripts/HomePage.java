@@ -12,15 +12,21 @@ import baseClass.BaseClass;
 
 public class HomePage extends BaseClass {
 	
+	By MenSection = By.xpath("(//a[text()='Men'])[1]");
+	By PhoneCases = By.xpath("//*[text()='Phone Cases']");
+	By ResultDisplay = By.xpath("//ul[@class='results-base']/li[11]");
+	By PriceInfo = By.xpath("//span[@class='PriceInfo-price']");
+	By AddToBag = By.xpath("//*[text()='ADD TO BAG']");
+	
 	@Test
-	public void TC00() throws InterruptedException
+	public void TC00()
 	{
 		Actions act= new Actions(dr);
-		act.moveToElement(dr.findElement(By.xpath("(//a[text()='Men'])[1]"))).build().perform();
+		act.moveToElement(dr.findElement(MenSection)).build().perform();
 				
-		dr.findElement(By.xpath("//*[text()='Phone Cases']")).click();
+		dr.findElement(PhoneCases).click();
 		
-		dr.findElement(By.xpath("//ul[@class='results-base']/li[11]")).click();
+		dr.findElement(ResultDisplay).click();
 		
 		String parent = dr.getWindowHandle();
 		Set <String> wins = dr.getWindowHandles();
@@ -32,9 +38,9 @@ public class HomePage extends BaseClass {
 			}
 		}
 		
-		if (dr.findElement(By.xpath("//span[@class='PriceInfo-price']")).isDisplayed())
+		if (dr.findElement(PriceInfo).isDisplayed())
 		{
-			String priceofcover = dr.findElement(By.xpath("//span[@class='PriceInfo-price']")).getText();
+			String priceofcover = dr.findElement(PriceInfo).getText();
 			String [] price = priceofcover.split(" ");
 			
 			int price1 = Integer.parseInt(price[1]);
@@ -44,7 +50,7 @@ public class HomePage extends BaseClass {
 			}
 		}
 		
-		Assert.assertEquals(dr.findElement(By.xpath("//*[text()='ADD TO BAG']")).isDisplayed(), true,"Add to Bag is displaying");
+		Assert.assertEquals(dr.findElement(AddToBag).isDisplayed(), true,"Add to Bag is displaying");
 		dr.switchTo().window(parent);
 	}
 	

@@ -6,17 +6,17 @@
 		<classes>
 			 <class name="testScripts.HomePage" />
 		</classes>
-<!-- 	</test> Test
+	</test> <!-- Test -->
 		<test name="IETest">
 		<parameter name="Browser" value="IE"></parameter>
 		<classes>
-			 <class name="testScripts.HomePage" />
+			<!--  <class name="testScripts.HomePage" /> -->
 		</classes>
-	</test> Test
+	</test> <!-- Test -->
 			<test name="FirefoxTest">
 		<parameter name="Browser" value="Firefox"></parameter>
 		<classes>
-			 <class name="testScripts.HomePage" />
-		</classes> -->
+			<!--  <class name="testScripts.HomePage" /> -->
+		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
