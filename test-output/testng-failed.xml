@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <parameter name="Browser" value="InternetExplorer"/>
-  <test name="ChromeTest(failed)">
-    <parameter name="Browser" value="Chrome"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="testScripts.EconomyLot">
+      <class name="testScripts.HomePage">
         <methods>
-          <include name="TC19"/>
-          <include name="setUp"/>
-          <include name="TC17"/>
-          <include name="TC18"/>
-          <include name="close_Browser"/>
-          <include name="TC15"/>
-          <include name="TC14"/>
-          <include name="TC20"/>
-          <include name="TC10"/>
-          <include name="TC16"/>
+          <include name="TC00"/>
         </methods>
-      </class> <!-- testScripts.EconomyLot -->
+      </class> <!-- testScripts.HomePage -->
     </classes>
-  </test> <!-- ChromeTest(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
